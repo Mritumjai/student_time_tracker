@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus — Study Timer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="grain"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1 class="logo">Focus</h1>
+            <div class="today-total">
+                <span class="label">Today</span>
+                <span class="time" id="todayTotal">0h 0m</span>
+            </div>
+        </header>
+
+        <!-- Main Timer Section -->
+        <section class="timer-section">
+            <div class="subject-selector">
+                <input 
+                    type="text" 
+                    id="subjectInput" 
+                    placeholder="What are you studying?"
+                    list="subjects"
+                    autocomplete="off"
+                >
+                <datalist id="subjects"></datalist>
+            </div>
+
+            <div class="timer-display">
+                <div class="time-digits" id="timerDisplay">00:00:00</div>
+                <div class="timer-label">hours : minutes : seconds</div>
+            </div>
+
+            <div class="timer-controls">
+                <button id="startBtn" class="btn btn-start">
+                    <span class="btn-text">Start Session</span>
+                    <span class="btn-icon">▶</span>
+                </button>
+                <button id="stopBtn" class="btn btn-stop" disabled>
+                    <span class="btn-text">End Session</span>
+                    <span class="btn-icon">■</span>
+                </button>
+            </div>
+
+            <div class="session-info" id="sessionInfo" style="display: none;">
+                <span id="currentSubject"></span>
+            </div>
+        </section>
+
+        <!-- Stats Dashboard -->
+        <section class="stats-section">
+            <div class="stats-header">
+                <h2>Your Progress</h2>
+                <button class="toggle-stats" id="toggleStats">
+                    <span>Show Analytics</span>
+                    <span class="arrow">↓</span>
+                </button>
+            </div>
+
+            <div class="stats-content" id="statsContent" style="display: none;">
+                <!-- Subject Breakdown -->
+                <div class="stat-card">
+                    <h3>Time by Subject</h3>
+                    <div class="chart-container">
+                        <canvas id="subjectChart"></canvas>
+                    </div>
+                    <div id="subjectList" class="subject-list"></div>
+                </div>
+
+                <!-- Daily Activity -->
+                <div class="stat-card">
+                    <h3>Last 7 Days</h3>
+                    <div class="chart-container">
+                        <canvas id="dailyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/timer.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/stats.js') }}"></script>
+</body>
+</html>

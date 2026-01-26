@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Study Timer - Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0f0e0e;
+            color: #f5f3ef;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 {
+            font-size: 3rem;
+            font-style: italic;
+            background: linear-gradient(135deg, #ff6b35, #ffa600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+        .preview {
+            background: #1a1918;
+            border: 2px solid #2d2b28;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        .preview h2 {
+            color: #ffa600;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .feature {
+            background: #242220;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 3px solid #ff6b35;
+        }
+        .feature h3 {
+            color: #4ecdc4;
+            margin-bottom: 10px;
+        }
+        .timer-demo {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #242220 0%, #1a1918 100%);
+            margin: 30px 0;
+        }
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f5f3ef;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+            margin: 30px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            border: 2px solid #4ecdc4;
+            color: #4ecdc4;
+            background: transparent;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-card {
+            background: #242220;
+            padding: 30px;
+            border: 1px solid #2d2b28;
+        }
+        .stat-card h4 {
+            color: #b8b4ad;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .color-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #ffa600, #00a896);
+            margin-bottom: 20px;
+        }
+        .tech-stack {
+            background: #242220;
+            padding: 30px;
+            margin-top: 30px;
+            border-left: 5px solid #ffa600;
+        }
+        .tech-stack ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .tech-stack li:before {
+            content: "▸ ";
+            color: #ff6b35;
+            font-weight: bold;
+        }
+        code {
+            background: #0f0e0e;
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: #ffa600;
+        }
+        .setup-steps {
+            background: #1a1918;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px solid #2d2b28;
+        }
+        .setup-steps ol {
+            padding-left: 25px;
+        }
+        .setup-steps li {
+            margin: 15px 0;
+            color: #b8b4ad;
+        }
+        .setup-steps strong {
+            color: #ff6b35;
+        }
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .timer-display { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Focus</h1>
+        
+        <div class="preview">
+            <div class="color-bar"></div>
+            <h2>Study Timer with Beautiful Analytics</h2>
+            <p>A complete Flask web application for tracking study sessions with real-time analytics and a distinctive brutalist-meets-elegant design.</p>
+        </div>
+
+        <div class="timer-demo">
+            <div style="font-size: 0.9rem; color: #7a766f; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 20px;">Demo Interface</div>
+            <div style="color: #b8b4ad; margin-bottom: 20px;">What are you studying?</div>
+            <div class="timer-display">02:34:17</div>
+            <div style="font-size: 0.75rem; color: #7a766f; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 30px;">HOURS : MINUTES : SECONDS</div>
+            <button class="btn">▶ START SESSION</button>
+            <button class="btn" style="border-color: #ff6b6b; color: #ff6b6b;">■ END SESSION</button>
+        </div>
+
+        <div class="feature">
+            <h3>✅ All Features Implemented</h3>
+            <p><strong>Phase 1:</strong> Timer with start/stop, database storage, today's total</p>
+            <p><strong>Phase 2:</strong> Subject selection, autocomplete, per-subject tracking</p>
+            <p><strong>Phase 3:</strong> Interactive dashboard with pie charts and bar graphs</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h4>📊 Time by Subject</h4>
+                <p style="color: #7a766f;">Interactive pie chart showing how you spend your study time across different subjects</p>
+            </div>
+            <div class="stat-card">
+                <h4>📈 Last 7 Days</h4>
+                <p style="color: #7a766f;">Bar graph displaying your daily study activity for the past week</p>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h2 style="margin-bottom: 20px;">🔧 Tech Stack</h2>
+            <ul>
+                <li><strong>Backend:</strong> Flask (Python) with SQLite database</li>
+                <li><strong>Frontend:</strong> Vanilla JavaScript, HTML5, CSS3</li>
+                <li><strong>Charts:</strong> Chart.js for interactive visualizations</li>
+                <li><strong>Design:</strong> Custom brutalist aesthetic with animations</li>
+                <li><strong>Fonts:</strong> Instrument Serif + JetBrains Mono</li>
+            </ul>
+        </div>
+
+        <div class="setup-steps">
+            <h2 style="margin-bottom: 20px;">🚀 Quick Start</h2>
+            <ol>
+                <li><strong>Navigate to folder:</strong> <code>cd study-timer</code></li>
+                <li><strong>Create virtual env:</strong> <code>python -m venv venv</code></li>
+                <li><strong>Activate venv:</strong> <code>source venv/bin/activate</code> (Mac/Linux) or <code>venv\Scripts\activate</code> (Windows)</li>
+                <li><strong>Install dependencies:</strong> <code>pip install -r requirements.txt</code></li>
+                <li><strong>Run the app:</strong> <code>python app.py</code></li>
+                <li><strong>Open browser:</strong> Navigate to <code>http://localhost:5000</code></li>
+            </ol>
+            <p style="margin-top: 20px; color: #4ecdc4;"><strong>Or simply run:</strong> <code>./start.sh</code> (Mac/Linux) or <code>start.bat</code> (Windows)</p>
+        </div>
+
+        <div class="feature" style="margin-top: 30px; border-left-color: #4ecdc4;">
+            <h3>💡 Future Enhancement Ideas</h3>
+            <p>User authentication • Streak counter 🔥 • Weekly goals • CSV export • Dark/Light mode • Pomodoro mode • AI insights • Mobile app • Break reminders</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; padding: 30px; color: #7a766f;">
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">Built with ❤️ for focused learners</p>
+            <p>All files included • Complete working app • Ready to customize</p>
+        </div>
+    </div>
+</body>
+</html>
